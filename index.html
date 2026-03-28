@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chidubem Ejiofor | Public Health Practitioner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0d2240;
+      --teal:    #0e7490;
+      --teal-lt: #22d3ee;
+      --cream:   #f8f5f0;
+      --white:   #ffffff;
+      --gray:    #64748b;
+      --gray-lt: #e2e8f0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 6%;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--gray-lt);
+    }
+    .nav-logo { font-weight: 700; font-size: 1.05rem; color: var(--navy); letter-spacing: -.3px; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--gray); font-size: .9rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--teal); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 60%, #0e5272 100%);
+      padding: 7rem 6% 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 3rem; width: 100%;
+    }
+    .hero-photo-wrap {
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .hero-photo {
+      width: 260px; height: 260px; border-radius: 50%;
+      object-fit: cover; object-position: center top;
+      border: 4px solid rgba(255,255,255,.2);
+      box-shadow: 0 0 0 8px rgba(14,116,144,.3), 0 20px 60px rgba(0,0,0,.4);
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .hero-inner { flex-direction: column-reverse; align-items: flex-start; }
+      .hero-photo { width: 140px; height: 140px; }
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-content { max-width: 620px; position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(14,116,144,.35); color: var(--teal-lt);
+      padding: .35rem 1rem; border-radius: 999px;
+      font-size: .8rem; font-weight: 600; letter-spacing: .5px; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-tag svg { width: 14px; height: 14px; }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      color: var(--white); line-height: 1.15; margin-bottom: .75rem;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem; color: #93c5fd; font-weight: 400; margin-bottom: 1.75rem;
+    }
+    .hero-bio {
+      font-size: 1rem; color: rgba(255,255,255,.75); max-width: 580px;
+      margin-bottom: 2.5rem; line-height: 1.8;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--teal); color: var(--white);
+      padding: .8rem 1.8rem; border-radius: 8px;
+      font-weight: 600; text-decoration: none; font-size: .95rem;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: #0891b2; transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(255,255,255,.1); color: var(--white);
+      padding: .8rem 1.8rem; border-radius: 8px;
+      font-weight: 600; text-decoration: none; font-size: .95rem;
+      border: 1px solid rgba(255,255,255,.25);
+      transition: background .2s, transform .15s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.2); transform: translateY(-2px); }
+    .hero-badges {
+      margin-top: 3rem; display: flex; gap: 1.5rem; flex-wrap: wrap;
+    }
+    .badge {
+      display: flex; align-items: center; gap: .6rem;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+      padding: .55rem 1rem; border-radius: 8px;
+      color: rgba(255,255,255,.8); font-size: .82rem;
+    }
+    .badge svg { opacity: .7; flex-shrink: 0; }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 6%; }
+    section:nth-child(even) { background: var(--cream); }
+    .section-label {
+      text-transform: uppercase; letter-spacing: 2px; font-size: .75rem;
+      font-weight: 700; color: var(--teal); margin-bottom: .75rem;
+    }
+    h2 { font-size: clamp(1.8rem,3vw,2.4rem); color: var(--navy); margin-bottom: 1rem; line-height: 1.25; }
+    .section-lead { font-size: 1.05rem; color: var(--gray); max-width: 600px; margin-bottom: 3.5rem; }
+    .divider { width: 48px; height: 4px; background: var(--teal); border-radius: 2px; margin: 1rem 0 2rem; }
+
+    /* ── EXPERTISE GRID ── */
+    .expertise-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+    .expertise-card {
+      background: var(--white); border-radius: 12px;
+      padding: 1.75rem; border: 1px solid var(--gray-lt);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .expertise-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.08); transform: translateY(-3px); }
+    .expertise-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: linear-gradient(135deg, #e0f2fe, #b3e5fc);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .expertise-icon svg { color: var(--teal); }
+    .expertise-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .5rem; }
+    .expertise-card p { font-size: .875rem; color: var(--gray); }
+
+    /* ── EXPERIENCE TIMELINE ── */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: ''; position: absolute; left: 18px; top: 0; bottom: 0;
+      width: 2px; background: var(--gray-lt);
+    }
+    .timeline-item {
+      display: flex; gap: 2rem; margin-bottom: 3rem; position: relative;
+    }
+    .timeline-dot {
+      flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
+      background: var(--teal); display: flex; align-items: center; justify-content: center;
+      z-index: 1; margin-top: .15rem;
+    }
+    .timeline-dot svg { color: white; }
+    .timeline-body {
+      background: var(--white); border-radius: 12px; padding: 1.75rem;
+      border: 1px solid var(--gray-lt); flex: 1;
+      transition: box-shadow .2s;
+    }
+    .timeline-body:hover { box-shadow: 0 6px 24px rgba(0,0,0,.07); }
+    .timeline-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem; margin-bottom: .75rem; }
+    .timeline-date {
+      font-size: .78rem; font-weight: 600; color: var(--teal);
+      background: #e0f2fe; padding: .2rem .7rem; border-radius: 999px;
+    }
+    .timeline-org { font-size: .85rem; color: var(--gray); font-weight: 500; }
+    .timeline-body h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: .85rem; }
+    .timeline-body ul { padding-left: 1.1rem; color: var(--gray); font-size: .9rem; }
+    .timeline-body ul li { margin-bottom: .45rem; }
+
+    /* ── EDUCATION ── */
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 1.5rem; }
+    .edu-card {
+      background: var(--white); border-radius: 12px; padding: 1.75rem;
+      border: 1px solid var(--gray-lt); transition: box-shadow .2s, transform .2s;
+    }
+    .edu-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.08); transform: translateY(-3px); }
+    .edu-degree { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: .25rem; }
+    .edu-school { font-size: .88rem; color: var(--teal); font-weight: 600; margin-bottom: .25rem; }
+    .edu-year { font-size: .8rem; color: var(--gray); margin-bottom: .6rem; }
+    .edu-badge {
+      display: inline-block; font-size: .75rem; font-weight: 600;
+      padding: .2rem .6rem; border-radius: 4px;
+    }
+    .badge-gold { background: #fef3c7; color: #92400e; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+
+    /* ── HONOURS ── */
+    .honours-list { display: flex; flex-direction: column; gap: 1rem; max-width: 700px; }
+    .honour-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--white); padding: 1.25rem 1.5rem; border-radius: 10px;
+      border: 1px solid var(--gray-lt);
+    }
+    .honour-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 7px; }
+    .honour-text { font-size: .92rem; color: #334155; }
+    .honour-text strong { color: var(--navy); }
+
+    /* ── CONNECT CTA ── */
+    #connect {
+      background: linear-gradient(135deg, var(--navy), #1a3a5c);
+      color: var(--white); text-align: center; padding: 6rem 6%;
+    }
+    #connect h2 { color: var(--white); margin-bottom: .75rem; }
+    #connect .divider { margin: 1rem auto 1.5rem; }
+    #connect p { color: rgba(255,255,255,.75); max-width: 500px; margin: 0 auto 2.5rem; font-size: 1rem; }
+    .linkedin-btn {
+      display: inline-flex; align-items: center; gap: .65rem;
+      background: #0077b5; color: var(--white);
+      padding: 1rem 2.5rem; border-radius: 10px;
+      font-size: 1rem; font-weight: 700; text-decoration: none;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(0,119,181,.4);
+    }
+    .linkedin-btn:hover { background: #005e93; transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,119,181,.5); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a1628; color: rgba(255,255,255,.5);
+      text-align: center; padding: 1.5rem 6%;
+      font-size: .82rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 4%; }
+      .nav-links { gap: 1.2rem; }
+      section { padding: 4rem 4%; }
+      .timeline::before { left: 15px; }
+      .timeline-dot { width: 32px; height: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Chidubem Ejiofor</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+  <div class="hero-content">
+    <div class="hero-tag">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
+      Public Health Practitioner
+    </div>
+    <h1>Chidubem Ejiofor</h1>
+    <p class="hero-subtitle">FRSPH &nbsp;·&nbsp; Lecturer &nbsp;·&nbsp; Researcher &nbsp;·&nbsp; Leeds, UK</p>
+    <p class="hero-bio">
+      Dedicated public health professional with over 5 years of cross-sector experience in healthcare coordination, emergency response systems, and community health programmes. Currently serving as a Lecturer at Arden University and Principal Investigator at the Yorkshire Ambulance Service Research Institute.
+    </p>
+    <div class="hero-actions">
+      <a href="#connect" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        Connect on LinkedIn
+      </a>
+      <a href="#experience" class="btn-secondary">
+        View Experience
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-badges">
+      <div class="badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        MSc Public Health — Distinction
+      </div>
+      <div class="badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        Fellow, Royal Society for Public Health
+      </div>
+      <div class="badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Leeds, UK
+      </div>
+    </div>
+  </div>
+  <div class="hero-photo-wrap">
+    <img src="WhatsApp Image 2026-03-28 at 10.35.14.jpeg" alt="Chidubem Ejiofor" class="hero-photo" />
+  </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label">About Me</p>
+  <h2>Bridging Research, Education & Public Health Practice</h2>
+  <div class="divider"></div>
+  <p class="section-lead">
+    I work at the intersection of academia, research, and frontline healthcare — committed to reducing health inequalities and improving emergency care access for underserved communities.
+  </p>
+  <p style="color:#475569; max-width:700px; font-size:.97rem; line-height:1.85;">
+    As a <strong>Fellow of the Royal Society for Public Health (FRSPH)</strong>, I bring a rigorous evidence-based lens to every project. My current work as Principal Investigator at the <strong>Yorkshire Ambulance Service (YAS) Research Institute</strong> focuses on understanding how deprivation affects access to emergency care in Yorkshire — backed by a £9,850 pump-priming grant. Alongside my research role, I lecture in Health and Care Management at <strong>Arden University</strong>, shaping the next generation of healthcare professionals. I am also an NHS Pathways Trainer, conducting compliance audits and competency assessments for remote care staff.
+  </p>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise">
+  <p class="section-label">Core Expertise</p>
+  <h2>What I Bring to the Table</h2>
+  <div class="divider"></div>
+  <div class="expertise-grid">
+
+    <div class="expertise-card">
+      <div class="expertise-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e7490" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <h3>Academic Leadership</h3>
+      <p>Curriculum development, student mentorship, blended learning, and evidence-based teaching practice.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e7490" stroke-width="2"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      </div>
+      <h3>Research Design</h3>
+      <p>Principal Investigator experience with mixed-methods analysis, systematic reviews, thematic analysis, and PPI engagement.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e7490" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <h3>Healthcare Operations</h3>
+      <p>NHS Pathways training & audits, clinical triage analysis, service improvement, and GDPR compliance.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e7490" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <h3>Community Health</h3>
+      <p>Patient and Public Involvement (PPI), focus groups in deprived communities, co-design of research methodologies.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e7490" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Data & Analysis</h3>
+      <p>Qualitative and quantitative analytical methods, pilot data analysis, and translating findings into policy insights.</p>
+    </div>
+
+    <div class="expertise-card">
+      <div class="expertise-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e7490" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3>Health Promotion</h3>
+      <p>Evidence-based health promotion strategies, digital health leadership, and resource planning for care systems.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">Experience</p>
+  <h2>Professional Journey</h2>
+  <div class="divider"></div>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-dot">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-meta">
+          <h3>Lecturer in Health and Care Management</h3>
+          <span class="timeline-date">Sep 2025 – Present</span>
+        </div>
+        <p class="timeline-org">Arden University</p>
+        <ul>
+          <li>Deliver modules across the BSc (Hons) programme — health promotion, resource planning, digital health leadership.</li>
+          <li>Support a diverse student body through blended and online learning platforms (iLearn).</li>
+          <li>Create and mark assessments ensuring learning outcomes are met.</li>
+          <li>Mentor students in academic progression and supervise real-world health management projects.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-meta">
+          <h3>Principal Investigator</h3>
+          <span class="timeline-date">Oct 2025 – Mar 2026</span>
+        </div>
+        <p class="timeline-org">Yorkshire Ambulance Service (YAS) Research Institute</p>
+        <ul>
+          <li>Leading: <em>"Understanding Differential Access to Emergency and Urgent Care: A Mixed-Methods Analysis of NHS Pathways Call Outcomes Across Deprived Communities in Yorkshire."</em></li>
+          <li>Managing a £9,850 pump-priming grant for pilot data analysis and full research proposal development.</li>
+          <li>Coordinating a multi-disciplinary team including YAS analysts and academics from Leeds & Huddersfield.</li>
+          <li>Leading PPI activities — focus groups in deprived communities to co-design research methodologies.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-meta">
+          <h3>NHS Pathways Trainer</h3>
+          <span class="timeline-date">Apr 2024 – Present</span>
+        </div>
+        <p class="timeline-org">Yorkshire Ambulance Service NHS Trust</p>
+        <ul>
+          <li>Conduct NHS Pathways training (Core Modules 1 & 2) and competency assessments for Remote Care staff.</li>
+          <li>Perform audits of call-handling practices and analyse data to inform service improvements.</li>
+          <li>Ensure compliance with licensing requirements, Trust policies, and GDPR standards.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label">Education & Qualifications</p>
+  <h2>Academic Background</h2>
+  <div class="divider"></div>
+  <div class="edu-grid">
+
+    <div class="edu-card">
+      <p class="edu-degree">MSc Public Health (Health Promotion)</p>
+      <p class="edu-school">Leeds Beckett University</p>
+      <p class="edu-year">2024</p>
+      <span class="edu-badge badge-gold">Distinction</span>
+    </div>
+
+    <div class="edu-card">
+      <p class="edu-degree">BSc (Hons) Microbiology</p>
+      <p class="edu-school">University of Nigeria, Nsukka</p>
+      <p class="edu-year">2019</p>
+      <span class="edu-badge badge-blue">Honours</span>
+    </div>
+
+    <div class="edu-card">
+      <p class="edu-degree">Team Leading</p>
+      <p class="edu-school">Craven College</p>
+      <p class="edu-year">2025</p>
+      <span class="edu-badge badge-blue">Certified</span>
+    </div>
+
+    <div class="edu-card">
+      <p class="edu-degree">NIHR Good Clinical Practice (GCP)</p>
+      <p class="edu-school">Introduction Course</p>
+      <p class="edu-year">Completed: August 2025</p>
+      <span class="edu-badge badge-blue">Certified</span>
+    </div>
+
+    <div class="edu-card">
+      <p class="edu-degree">Yorkshire & Humber Public Health Practitioner Development Programme</p>
+      <p class="edu-school">Comprehensive training in research design, ethics, and mixed methodologies</p>
+      <p class="edu-year">Ongoing</p>
+      <span class="edu-badge badge-blue">In Progress</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- HONOURS -->
+<section id="honours">
+  <p class="section-label">Honours & Affiliations</p>
+  <h2>Recognition</h2>
+  <div class="divider"></div>
+  <div class="honours-list">
+    <div class="honour-item">
+      <div class="honour-dot"></div>
+      <p class="honour-text"><strong>Fellow (FRSPH)</strong> — Royal Society for Public Health. Membership No. 138941.</p>
+    </div>
+    <div class="honour-item">
+      <div class="honour-dot"></div>
+      <p class="honour-text"><strong>Dean's Prize for Excellence in Health Promotion</strong> — Leeds Beckett University. Awarded for outstanding academic performance at MSc level.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT CTA -->
+<section id="connect">
+  <p class="section-label" style="color:#67e8f9;">Let's Connect</p>
+  <h2>Interested in Collaborating?</h2>
+  <div class="divider" style="background:#0e7490;"></div>
+  <p>Whether you're a researcher, healthcare organisation, academic institution, or just curious about my work — I'd love to hear from you. Reach out on LinkedIn.</p>
+  <a href="https://www.linkedin.com/in/chidubem-e-frsph-1a502119a" target="_blank" rel="noopener noreferrer" class="linkedin-btn">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    Connect on LinkedIn
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Chidubem Ejiofor &nbsp;·&nbsp; Public Health | Lecturer | Researcher &nbsp;·&nbsp; Leeds, UK</p>
+</footer>
+
+</body>
+</html>
