@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0b1f3a" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a1220" media="(prefers-color-scheme: dark)" />
   <title>Chidubem Ejiofor | Public Health Practitioner</title>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZR7GF50789"></script>
@@ -353,6 +356,55 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
       .reveal { opacity: 1; transform: none; }
+    }
+    /* DARK MODE */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --cream:   #0e1726;
+        --body:    #c2cede;
+        --muted:   #93a3b8;
+        --line:    #1f2e45;
+        --teal:    #38bdf8;
+        --teal-dk: #7dd3fc;
+        --shadow-1: 0 1px 2px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.3);
+        --shadow-2: 0 2px 4px rgba(0,0,0,.5), 0 12px 32px rgba(0,0,0,.45);
+        color-scheme: dark;
+      }
+
+      body { background: #0a1220; color: var(--body); }
+
+      #about, #experience, #outputs { background: #0a1220; }
+      #expertise, #education, #honours { background: var(--cream); }
+      .expertise-card, .timeline-body, .edu-card, .honour-item {
+        background: #121e32; border-color: var(--line);
+      }
+      .expertise-card:hover, .timeline-body:hover, .edu-card:hover, .honour-item:hover { border-color: #2b4160; }
+
+      .nav-logo { color: #e6edf6; }
+      h2, .timeline-body h3, .edu-degree, .expertise-card h3 { color: #e9eff7; }
+      .honour-text strong { color: #e9eff7; }
+      .prose, .honour-text, .timeline-body ul { color: var(--body); }
+
+      nav { background: rgba(10,18,32,.82); }
+      nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,.5); }
+      .nav-links a:hover { color: #e6edf6; background: rgba(56,189,248,.12); }
+      .nav-links a.active { color: #7dd3fc; background: rgba(56,189,248,.16); }
+
+      .timeline-date { background: rgba(56,189,248,.14); color: #7dd3fc; }
+      .timeline-org, .edu-school { color: #7dd3fc; }
+      .honour-text a { background: rgba(56,189,248,.14); color: #7dd3fc; }
+      .honour-text a:hover { background: rgba(56,189,248,.24); }
+      .timeline-dot { background: #0d6f8c; box-shadow: 0 0 0 5px #0a1220, 0 4px 14px rgba(0,0,0,.5); }
+      .expertise-icon { background: linear-gradient(140deg, #16324a, #0f2739); }
+      .expertise-icon svg { color: #7dd3fc; }
+      .badge-gold { background: #3b2f12; color: #f5cf7a; }
+      .badge-blue { background: #14293f; color: #93c5fd; }
+      .skip-link { background: #7dd3fc; color: #0a1220; }
+
+      a { color: #7dd3fc; }
+      a:hover { color: #bae6fd; }
+      .outputs-note { color: var(--muted); }
+      footer { background: #060d18; }
     }
   </style>
 </head>
